@@ -77,10 +77,10 @@ Single-purpose generation:
 
 ```bash
 # Create model + migration only
-php artisan make:fastapi Speed --mode=m
+php artisan make:fastapi Product --mode=m
 
 # Create model + controller (+ repository automatically)
-php artisan make:fastapi Speed --mode=c
+php artisan make:fastapi Product --mode=c
 ```
 
 If flags are omitted, all generators run.
