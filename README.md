@@ -90,3 +90,9 @@ If flags are omitted, all generators run.
 - Add `--routes` to append `Route::apiResource(...)` to `routes/api.php`.
 - Set `fastapi.auto_append_routes=true` in config for default auto-route behavior.
 - Use `--no-routes` to explicitly skip route appending.
+
+Examples:
+
+```bash
+php artisan make:fastapi Product --mode=crfrepo --routes
+```
