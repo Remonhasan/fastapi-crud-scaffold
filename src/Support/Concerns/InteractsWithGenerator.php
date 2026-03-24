@@ -69,7 +69,7 @@ trait InteractsWithGenerator
 
     protected function renderStub(string $stubFile, array $context): string
     {
-        $stubPath = __DIR__ . '/../../../../stubs/' . $stubFile;
+        $stubPath = __DIR__ . '/../../../stubs/' . $stubFile;
         $stub = $this->files->get($stubPath);
 
         foreach ($context as $key => $value) {

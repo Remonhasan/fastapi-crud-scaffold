@@ -55,6 +55,12 @@ You can also pass flags as a plain second argument:
 php artisan make:fastapi Product mcrfrepo
 ```
 
+If your shell parses short options differently, this equivalent form also works:
+
+```bash
+php artisan make:fastapi Product --mode=crfrepo
+```
+
 This generates:
 
 - migration for `products` table

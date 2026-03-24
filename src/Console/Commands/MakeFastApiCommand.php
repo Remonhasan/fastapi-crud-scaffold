@@ -13,7 +13,7 @@ class MakeFastApiCommand extends Command
     protected $signature = 'make:fastapi
                             {name : Table or model name, e.g. Product}
                             {flags? : Combined flags such as -mcrfrepo}
-                            {--m= : Compact flags style, e.g. -mcrfrepo}
+                            {--m|mode= : Compact flags style, e.g. -mcrfrepo}
                             {--routes : Append apiResource route to routes/api.php}
                             {--no-routes : Do not append routes even if config enables it}';
 
@@ -67,7 +67,7 @@ class MakeFastApiCommand extends Command
 
     protected function resolveFlagsInput(): ?string
     {
-        $compactOption = $this->option('m');
+        $compactOption = $this->option('mode');
 
         if (is_string($compactOption) && $compactOption !== '') {
             // Supports Artisan compact option format: -mcrfrepo
