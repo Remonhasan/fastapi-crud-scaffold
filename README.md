@@ -67,12 +67,6 @@ This generates:
 - `f` => requests
 - `repo` => repository
 
-Examples:
-
-```bash
-php artisan make:fastapi Product --mode=crfrepo --routes
-```
-
 Single-purpose generation:
 
 ```bash
