@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\{{model}};
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+
+class {{model}}Repository
+{
+    public function __construct(
+        private readonly {{model}} $model
+    ) {
+    }
+
+    public function paginate(int $perPage = 15): LengthAwarePaginator
+    {
+        return $this->model->newQuery()->latest()->paginate($perPage);
+    }
+
+    public function findOrFail(int|string $id): {{model}}
+    {
+        return $this->model->newQuery()->findOrFail($id);
+    }
+
+    public function create(array $data): {{model}}
+    {
+        return $this->model->newQuery()->create($data);
+    }
+
+    public function update(int|string $id, array $data): {{model}}
+    {
+        $record = $this->findOrFail($id);
+        $record->update($data);
+
+        return $record->fresh();
+    }
+
+    public function delete(int|string $id): bool
+    {
+        return (bool) $this->findOrFail($id)->delete();
+    }
+}
