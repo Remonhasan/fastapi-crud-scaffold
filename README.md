@@ -73,6 +73,16 @@ Examples:
 php artisan make:fastapi Product --mode=crfrepo --routes
 ```
 
+Single-purpose generation:
+
+```bash
+# Create model + migration only
+php artisan make:fastapi Speed --mode=m
+
+# Create model + controller (+ repository automatically)
+php artisan make:fastapi Speed --mode=c
+```
+
 If flags are omitted, all generators run.
 
 ### Routes
