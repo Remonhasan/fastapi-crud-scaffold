@@ -33,6 +33,7 @@ class MakeFastApiCommand extends Command
         $flags = $this->normalizeFlags($flagsInput);
 
         $this->info("Generating Fast API scaffold for {$context['model']}...");
+        $this->generateModel($context);
 
         if (in_array('m', $flags, true)) {
             $this->generateMigration($context);
@@ -91,6 +92,18 @@ class MakeFastApiCommand extends Command
         );
 
         $this->line($created ? " - Created migration: {$fileName}" : " - Skipped migration (already exists): {$fileName}");
+    }
+
+    protected function generateModel(array $context): void
+    {
+        $path = app_path("Models/{$context['model']}.php");
+
+        $created = $this->writeFileIfMissing(
+            $path,
+            $this->renderStub('model.stub', $context)
+        );
+
+        $this->line($created ? " - Created model: {$context['model']}" : " - Skipped model: {$context['model']}");
     }
 
     protected function generateController(array $context): void
