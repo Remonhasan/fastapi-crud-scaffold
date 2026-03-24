@@ -5,6 +5,7 @@ Generate API CRUD boilerplate in Laravel with a single command.
 ## Features
 
 - Command: `make:fastapi {name} {flags?}`
+- Supports Laravel `9` through `13`
 - Generates:
   - migration (`m`)
   - controller (`c`)
