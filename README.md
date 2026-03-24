@@ -67,7 +67,7 @@ This generates:
 - `f` => requests
 - `repo` => repository
 
-Single-purpose generation:
+### Single-purpose generation:
 
 ```bash
 # Create model + migration only
