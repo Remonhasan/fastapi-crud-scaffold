@@ -24,6 +24,12 @@ Install in your Laravel app:
 composer require remonhasan/fastapi-crud-scaffold
 ```
 
+If Composer shows dependency conflicts, update lock dependencies during install:
+
+```bash
+composer require remonhasan/fastapi-crud-scaffold -W
+```
+
 Publish config (optional):
 
 ```bash
