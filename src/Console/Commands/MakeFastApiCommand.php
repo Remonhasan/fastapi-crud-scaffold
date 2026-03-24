@@ -13,6 +13,7 @@ class MakeFastApiCommand extends Command
     protected $signature = 'make:fastapi
                             {name : Table or model name, e.g. Product}
                             {flags? : Combined flags such as -mcrfrepo}
+                            {--m= : Compact flags style, e.g. -mcrfrepo}
                             {--routes : Append apiResource route to routes/api.php}
                             {--no-routes : Do not append routes even if config enables it}';
 
@@ -28,7 +29,8 @@ class MakeFastApiCommand extends Command
     public function handle(): int
     {
         $context = $this->buildContext((string) $this->argument('name'));
-        $flags = $this->normalizeFlags($this->argument('flags'));
+        $flagsInput = $this->resolveFlagsInput();
+        $flags = $this->normalizeFlags($flagsInput);
 
         $this->info("Generating Fast API scaffold for {$context['model']}...");
 
@@ -61,6 +63,20 @@ class MakeFastApiCommand extends Command
         $this->info('Fast API scaffold generation completed.');
 
         return self::SUCCESS;
+    }
+
+    protected function resolveFlagsInput(): ?string
+    {
+        $compactOption = $this->option('m');
+
+        if (is_string($compactOption) && $compactOption !== '') {
+            // Supports Artisan compact option format: -mcrfrepo
+            return 'm' . $compactOption;
+        }
+
+        $argumentFlags = $this->argument('flags');
+
+        return is_string($argumentFlags) ? $argumentFlags : null;
     }
 
     protected function generateMigration(array $context): void

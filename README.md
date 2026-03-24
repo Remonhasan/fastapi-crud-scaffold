@@ -49,6 +49,12 @@ php artisan vendor:publish --tag=fastapi-stubs
 php artisan make:fastapi Product -mcrfrepo
 ```
 
+You can also pass flags as a plain second argument:
+
+```bash
+php artisan make:fastapi Product mcrfrepo
+```
+
 This generates:
 
 - migration for `products` table
