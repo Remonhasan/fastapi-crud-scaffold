@@ -46,18 +46,6 @@ php artisan vendor:publish --tag=fastapi-stubs
 ## Usage
 
 ```bash
-php artisan make:fastapi Product -mcrfrepo
-```
-
-You can also pass flags as a plain second argument:
-
-```bash
-php artisan make:fastapi Product mcrfrepo
-```
-
-If your shell parses short options differently, this equivalent form also works:
-
-```bash
 php artisan make:fastapi Product --mode=crfrepo
 ```
 
@@ -80,8 +68,7 @@ This generates:
 Examples:
 
 ```bash
-php artisan make:fastapi Product -mcr
-php artisan make:fastapi Product -cfrepo --routes
+php artisan make:fastapi Product --mode=crfrepo --routes
 ```
 
 If flags are omitted, all generators run.
